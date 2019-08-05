@@ -22,9 +22,9 @@ export default {
     // });
     
  
-    http("get","/api/movieOnInfoList?cityId=10").then((data)=>{
-        console.log(data);
-      })
+    // http("get","/api/movieOnInfoList?cityId=10").then((data)=>{
+    //     console.log(data);
+    //   })
   }
 }
 </script>
@@ -32,4 +32,7 @@ export default {
 
 
 <style>
+#app{
+  height: 100%;
+}
 </style>
