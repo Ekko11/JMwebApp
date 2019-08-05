@@ -41,7 +41,7 @@ module.exports = {
                 "utils":path.join(__dirname,"./src/utils"),
                 "router":path.join(__dirname,"./src/router"),
                 "store":path.join(__dirname,"./src/store"),
-                "lib":path.join(__dirname,"./src/lib")
+                "lib":path.join(__dirname,"./src/lib"),
             }
         }
     }

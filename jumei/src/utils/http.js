@@ -12,7 +12,7 @@ const server = axios.create({
 
 server.interceptors.request.use((config)=>{
     if(config.method.toUpperCase() == "GET"){
-        config.params = {...config.data}
+        // config.params = {...config.data}
     }else if(config.method.toUpperCase() == "POST"){
         config.headers["content-type"] = "appliaction/json";
         config.data = qs.stringify(config.data)
