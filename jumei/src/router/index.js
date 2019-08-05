@@ -4,7 +4,8 @@ import home from "./home"
 import order from "./order"
 import mine from "./mine"
 import yiqituan from "./yiqituan"
-
+import login from "./login"
+import register from "./register"
 
 
 
@@ -19,6 +20,8 @@ export default new VueRouter({
         home,
         order,
         yiqituan,
-        mine
+        mine,
+        login,
+        register
     ]
 })
