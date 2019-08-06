@@ -19,13 +19,12 @@ module.exports = {
                 changeOrigin:true
             },
 
-
-            //猫眼  试验
-            "/api":{
-                target:"http://39.97.33.178",
+            //http://m.jumei.com/luxury/ajaxList?page=1&card_id=1837
+            "/luxury":{
+                target:"http://m.jumei.com",
                 changeOrigin:true
-            }
-           
+            },
+
         
         }
     },
