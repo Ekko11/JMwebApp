@@ -30,24 +30,26 @@ export default {
     return {
       navs: [
         {
-          info: "首页",
-          url: "/home/home"
-        },
-        {
           info: "母婴",
           url: "/home/mumbaby"
         },
         {
+          info: "轻奢",
+          url: "/home/luxury"
+        },
+        {
+          info: "专场",
+          url: "/home/home"
+        },
+      
+        {
           info: "极速免税店",
           url: "/home/speed"
         },
-        {
-          info: "轻奢",
-          url: "/home/shechi"
-        },
+     
         {
           info: "名品特卖",
-          url: "/home/goods"
+          url: "/home/famous"
         }
       ]
     }
