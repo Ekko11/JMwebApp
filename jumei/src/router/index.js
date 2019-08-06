@@ -11,7 +11,7 @@ import register from "./register"
 
 
 Vue.use(VueRouter)
-export default new VueRouter({
+const router = new VueRouter({
     routes:[
         {
             path:"/",
@@ -25,3 +25,24 @@ export default new VueRouter({
         register
     ]
 })
+
+
+
+// router.beforeEach((to,from,next)=>{
+//     console.log(to);
+//     if(to.path !="/login" && to.meta.auth){
+//         if(sessionStorage.getItem("token")){
+//             next();
+//         }else{
+//             next("/login");
+//         }
+//     }else{
+//         next();
+//     }
+   
+// })
+
+
+
+
+export default router;

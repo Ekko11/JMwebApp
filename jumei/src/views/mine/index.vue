@@ -24,10 +24,31 @@
         </ul>
       </div>
 
+      <div>
+        <div class="iconlist">
+          <div>
+            <i class="iconfont">&#xe606;</i>
+            <span>
+              我的订单
+              <span>&gt;</span>
+            </span>
+          </div>
+        </div>
+        <div class="orderone">
+          <div class="orderdiv" v-for="(item,index) in orderlist" :key="index">
+            <i class="iconfont" v-html="item.icon"></i>
+            <span>{{item.text}}</span>
+          </div>
+        </div>
+      </div>
+
       <div class="iconlist block">
         <div v-for="(item,index) in iconlist" :key="index">
           <i class="iconfont" v-html="item.icon"></i>
-          <span>{{item.text}}<span>&gt;</span></span>
+          <span>
+            {{item.text}}
+            <span>&gt;</span>
+          </span>
         </div>
       </div>
     </div>
@@ -53,7 +74,7 @@ export default {
           text: "收藏"
         }
       ],
-      order: [
+      orderlist: [
         {
           icon: "&#xe606",
           text: "代付款"
@@ -72,14 +93,6 @@ export default {
         }
       ],
       iconlist: [
-        {
-          icon: "&#xe606",
-          text: "我的订单"
-        },
-        {
-          icon: "&#xe606",
-          text: "我的资产"
-        },
         {
           icon: "&#xe606",
           text: "售后服务"
@@ -172,10 +185,10 @@ h4 {
 }
 .user_info .grade {
   background: rgba(255, 255, 255, 0.2);
-  border-radius: 100px;
-  letter-spacing: 0.65px;
-  line-height: 18px;
-  padding: 3px 5px;
+  border-radius: .833rem;
+  letter-spacing: .005rem;
+  line-height: .15rem;
+  padding: .025rem .042rem;
   text-align: center;
   width: 0.75rem;
 }
@@ -194,26 +207,63 @@ h4 {
   color: #666;
   margin: 0 0.033rem;
 }
-.toplist li i {
+.toplist li i,
+.orderdiv i {
   display: block;
   font-size: 0.15rem;
   margin-bottom: 0.033rem;
 }
 
-.iconlist {
+.orderone {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.orderdiv {
+  font-size: .117rem;
+  padding: .083rem 0;
+  width: 0.633rem;
   height: 0.417rem;
+  float: left;
+  color: #666;
+  text-align: center;
+}
+.orderdiv i{
+  font-size:24px;
+    width: 24px;
+    height: 24px;
+    margin: 5px auto;
+}
+
+.iconlist {
   font-size: 0.125rem;
   color: #666;
 }
-.iconlist div{
+.iconlist div {
   border-bottom: 0.004rem solid #e9e6e6;
+  height: .383rem;
+  line-height: .383rem;
+  padding: 0 .083rem;
 }
-.iconlist span{
-    color: #333;margin-left: 10px
+.iconlist span {
+  color: #333;
+  margin-left: .083rem;
+  font-size: .133rem;
+  font-family: "微软雅黑";
+}
+.iconlist span span {
+  float: right;
+  font-weight: 600;
+  color: #666;
+  font-size: .133rem;
+  font-family: "宋体";
 }
 
 .block {
   background: #fff;
-  margin-top: 12px;
+  margin-top: .1rem;
+  float: left;
 }
 </style>

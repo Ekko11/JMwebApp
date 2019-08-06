@@ -11,6 +11,11 @@ export default{
     path:"/yiqituan",
     component:()=>import("views/yiqituan"),
     name:'yiqituan',
+    meta: {
+        title: "我的",
+        flag: true,
+        auth:false,
+    },
     children:[
         {
             path:"/",

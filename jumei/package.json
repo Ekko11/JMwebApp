@@ -33,10 +33,7 @@
   ],
   "description": "```\r yarn install\r ```",
   "main": "babel.config.js",
-<<<<<<< HEAD
-=======
   "keywords": [],
->>>>>>> 7630f63b3f2935fec1c92887e01d5baa236c6263
   "author": "",
   "license": "ISC"
 }
