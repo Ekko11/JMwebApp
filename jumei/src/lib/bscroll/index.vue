@@ -25,7 +25,7 @@ export default {
   },
   methods:{
       topHandle(){
-          this.scroll.scrollTo(0, 0, 500, easing)
+          this.scroll.scrollTo(0, 0, 500)
 
       }
   }

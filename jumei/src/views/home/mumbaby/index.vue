@@ -21,11 +21,11 @@
 
 <script>
 import {home_mum_api} from "api/home/index.js"
-import ToTop from "lib/ToTop"
+
 export default {
     name:"Mumbaby",
     components:{
-        ToTop
+       
     },
     data(){
         return {
