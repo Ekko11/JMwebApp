@@ -1,6 +1,6 @@
 <template>
   <div class="content" ref="scroll">
-    <kl-BScroll>
+    <JM-scroll>
     <ul class="content_type">
       <li v-for="item in data" :key="item.item_id">
         <router-link :to="'/goodsDetail?item_id='+item.item_id+'&type='+item.type">
@@ -22,7 +22,7 @@
         </router-link>
       </li>
     </ul>
-    </kl-BScroll>
+    </JM-scroll>
   </div>
 </template>
 
@@ -108,7 +108,7 @@ export default {
 }
 .des i {
   list-style: none;
-      font: .116667rem "SimSun","宋体","Arial Narrow",HELVETICA;
+      font: .116667rem ,"宋体";
 }
 
 .price {

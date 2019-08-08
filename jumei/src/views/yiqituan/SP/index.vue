@@ -1,6 +1,6 @@
 <template>
   <div class="content" ref="scroll">
-    <kl-BScroll>
+    <JM-scroll>
     <ul class="content_type">
       <li v-for="item in data" :key="item.item_id">
         <router-link :to="'/goodsDetail?item_id='+item.item_id+'&type='+item.type">
@@ -22,7 +22,7 @@
         </router-link>
       </li>
     </ul>
-    </kl-BScroll>
+    </JM-scroll>
   </div>
 </template>
 
@@ -98,9 +98,6 @@ export default {
     line-height: .15rem;
     padding: 0 .1rem;
     margin-top: .083333rem;
-    /* white-space: nowrap; */
-    
-   
 }
 .des span {
     color: #fe4070;
@@ -108,7 +105,7 @@ export default {
 }
 .des i {
   list-style: none;
-      font: .116667rem "SimSun","宋体","Arial Narrow",HELVETICA;
+  font-family: .116667rem ,"宋体";
 }
 
 .price {

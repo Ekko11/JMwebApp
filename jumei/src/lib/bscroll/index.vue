@@ -1,86 +1,78 @@
 <template>
-    <div ref="wrapper" class="wrapper" data-id="456">
-        
-        <slot></slot>
- <div v-if="toTopFlag" class="toTop" @click="topHandle" ref="toTop"></div>
-        </div>
-  
+  <div ref="wrapper" class="wrapper" data-id="456">
+    <slot></slot>
+    <div v-if="toTopFlag" class="toTop" @click="topHandle" ref="toTop"></div>
+  </div>
 </template>
 
 <script>
-import BScroll from "better-scroll"
+import BScroll from "better-scroll";
 export default {
-    name:"JM-scroll",
-    data(){
-        return {
-            toTopFlag: false,
+  name: "JM-scroll",
+  data() {
+    return {
+      toTopFlag: false
+    };
+  },
 
-        }
+  mounted() {
+    this.scroll = new BScroll(this.$refs.wrapper, {
+      tap: true,
+      click: true,
+      pullDownRefresh: true,
+      pullUpLoad: true,
+      probeType: 2
+    });
+    this.scroll.on("scroll", this.scrollHandle);
+  },
+  methods: {
+    topHandle() {
+      this.scroll.scrollTo(0, 0, 500);
+      this.toTopFlag = false;
+    },
+    //下拉刷新数据
+    handlePullDownRefresh(callback) {
+      this.scroll.on("pullingDown", () => {
+        callback();
+      });
+    },
+    //通知下拉完成
+    handlefinishPullDown() {
+      this.scroll.finishPullDown();
+      this.scroll.refresh();
+    },
+    //上划加载数据
+    handlePullUpLoad(callback) {
+      this.scroll.on("pullingUp", () => {
+        callback();
+      });
+    },
+    //通知上划完成
+    handlefinishPullUp() {
+      this.scroll.finishPullUp();
+      this.scroll.refresh();
     },
 
-  mounted(){
-       this.scroll = new BScroll(this.$refs.wrapper,{
-           tap:true,
-           click:true,
-            pullDownRefresh:true,
-            pullUpLoad:true,
-            probeType:2,
-
-       });
-       this.scroll.on("scroll",this.scrollHandle)
-  },
-  methods:{
-      topHandle(){
-          this.scroll.scrollTo(0, 0, 500)
-          this.toTopFlag =false
-      },
-        //下拉刷新数据
-        handlePullDownRefresh(callback){
-            this.scroll.on("pullingDown",()=>{
-                callback()
-            })
-        },
-        //通知下拉完成
-        handlefinishPullDown(){
-            this.scroll.finishPullDown();
-            this.scroll.refresh();
-        },
-        //上划加载数据
-         handlePullUpLoad(callback){
-            this.scroll.on("pullingUp",()=>{
-                callback()
-            })
-        },
-        //通知上划完成
-         handlefinishPullUp(){
-            this.scroll.finishPullUp();
-            this.scroll.refresh();
-        },
-
-
-
-
-      //置顶小球
-      scrollHandle(...rest){
-          let{x,y} = rest[0]
-          if(y<-625){
-              if(this.toTopFlag) return
-              this.toTopFlag =true
-          }else{
-               if(!this.toTopFlag) return
-              this.toTopFlag =false
-          }
-          
+    //置顶小球
+    scrollHandle(...rest) {
+      let { x, y } = rest[0];
+      if (y < -625) {
+        if (this.toTopFlag) return;
+        this.toTopFlag = true;
+      } else {
+        if (!this.toTopFlag) return;
+        this.toTopFlag = false;
       }
+    }
   }
-
-}
+};
 </script>
 
 <style>
-.wrapper{
-    height: 100%;
+.wrapper {
+  height: 100%;
 }
+<<<<<<< HEAD
 .toTop{
     width: .417rem;
     height: .417rem;
@@ -90,5 +82,16 @@ export default {
     right: 0.1667rem;
     z-index:10;
     border-radius: 50%;
+=======
+.toTop {
+  width: 0.417rem;
+  height: 0.417rem;
+  background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  bottom: 0.667rem;
+  right: 0.1667rem;
+  z-index: 10;
+  border-radius: 50%;
+>>>>>>> KL
 }
 </style>

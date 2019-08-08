@@ -1,5 +1,6 @@
 import Recom  from "views/yiqituan/recom"
 import MZ  from "views/yiqituan/MZ"
+import yiqituan  from "views/yiqituan"
 import MY  from "views/yiqituan/MY"
 import SP  from "views/yiqituan/SP"
 import LP  from "views/yiqituan/LP"
@@ -9,7 +10,7 @@ import BJ  from "views/yiqituan/BJ"
 
 export default{
     path:"/yiqituan",
-    component:()=>import("views/yiqituan"),
+    component:yiqituan,
     name:'yiqituan',
     meta: {
         title: "我的",
@@ -19,7 +20,8 @@ export default{
     children:[
         {
             path:"/",
-             redirect:"recom"
+            redirect:"Recom",
+            name:"Recom"
         },
         {
             path:"recom",

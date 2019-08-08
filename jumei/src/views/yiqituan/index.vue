@@ -5,23 +5,26 @@
         <router-link
           v-for="(item,index) in list"
           :key="index"
-          :to="item['id']"
+          :to="item.id"
           tag="li"
         >{{item.name}}</router-link>
       </ul>
     </div>
+    <keep-alive>
     <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
 <script>
 export default {
+  name:"yiqituan",
   data() {
     return {
       list: [
         { name: "推荐", id: "/yiqituan/recom" },
-        { name: "母婴健康", id: "/yiqituan/MY" },
         { name: "美妆", id: "/yiqituan/MZ" },
+        { name: "母婴健康", id: "/yiqituan/MY" },
         { name: "饰品配饰", id: "/yiqituan/SP" },
         { name: "百科礼品箱包", id: "/yiqituan/LP" },
         { name: "数码家电", id: "/yiqituan/JD" },
@@ -36,7 +39,10 @@ export default {
     };
   }
 };
+
+
 </script>
+
 
 <style scoped>
 .yiqituan {
@@ -51,7 +57,7 @@ export default {
 .list-titel {
   padding: 0 0.125rem;
   white-space: nowrap;
-  border-bottom: 0.0625rem solid #eee;
+  border-bottom: 0.02rem solid #eee;
   background: #fff;
   height: 0.366667rem;
   display: flex;
