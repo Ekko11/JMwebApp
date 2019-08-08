@@ -27,14 +27,16 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 
 .advClass{
     float: left;
     width: 50%;
     text-align: center;
     line-height: .333333rem;  
-    height: .333333rem
+    height: .333333rem;
+    background: #fff;
+    z-index: 10;
 }
 .adv .router-link-active{
     color:#fe4070;

@@ -1,8 +1,8 @@
 <template>
-    <div ref="wrapper" class="wrapper" data-id="456">
+    <div ref="wrapper" class="wrapper">
         
         <slot></slot>
- <div v-if="toTopFlag" class="toTop" @click="topHandle" ref="toTop"></div>
+ <v-touch v-if="toTopFlag" class="toTop" @tap="topHandle" ref="toTop">Top</v-touch>
         </div>
   
 </template>
@@ -90,5 +90,8 @@ export default {
     right: 0.1667rem;
     z-index:10;
     border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    line-height: .417rem;
 }
 </style>

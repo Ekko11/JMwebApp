@@ -1,20 +1,18 @@
 <template>
   <div id="home">
-    <JM-scroll >
-      <div data-id='23'>
-        <Search />
-        <div class="navs">
-          <router-link
-            v-for="(item,index) in navs"
-            :key="index"
-            :to="item.url"
-            tag="span"
-            class="navspan"
-          >{{item.info}}</router-link>
-        </div>
-        <router-view></router-view>
-      </div>
-    </JM-scroll>
+    <Search />
+    <div class="navs">
+      <router-link
+        v-for="(item,index) in navs"
+        :key="index"
+        :to="item.url"
+        tag="span"
+        class="navspan"
+      >{{item.info}}</router-link>
+    </div>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
@@ -30,6 +28,10 @@ export default {
     return {
       navs: [
         {
+          info: "专场",
+          url: "/home/home"
+        },
+        {
           info: "母婴",
           url: "/home/mumbaby"
         },
@@ -37,28 +39,23 @@ export default {
           info: "轻奢",
           url: "/home/luxury"
         },
-        {
-          info: "专场",
-          url: "/home/home"
-        },
-      
+
         {
           info: "极速免税店",
           url: "/home/speed"
         },
-     
+
         {
           info: "名品特卖",
           url: "/home/famous"
         }
       ]
-    }
-  },
-  
+    };
+  }
 };
 </script>
 
-<style>
+<style scoped>
 #home {
   height: 100%;
   font-size: 0.058333rem;
@@ -70,6 +67,7 @@ export default {
   position: sticky;
   top: 0;
   z-index: 10;
+  background: #fff;
 }
 .navspan {
   margin-left: 0.091667rem;

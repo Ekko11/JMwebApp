@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <router-view></router-view>
-    <TabBar />
-  </div>
+    <TabBar v-if="this.$route.meta.tbflag"/>
+  </div>                
 </template>
 <script>
 import TabBar from "common/tabBar"; 
@@ -13,8 +13,6 @@ export default {
     TabBar
   },
   created() {
- 
- 
   }
 }
 </script>

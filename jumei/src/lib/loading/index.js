@@ -2,16 +2,20 @@ import Loading from "./index.vue"
 import Vue from "vue"
 export default ()=>{
     let LoadingComponent = Vue.extend(Loading);
-    let vm = new LoadingComponent({
+    let child = new LoadingComponent({
         el:document.createElement("div"),
+        data:{
+            flag:false
+        },
         methods:{
             handleMount(){
-                document.body.appendChild(vm.$mount().$el)
+              this.flag=true
             },
             handleDestory(){
-                document.body.removeChild(vm.$mount().$el)
+                this.flag=false
             }
         }
     })
-    return  vm
+    document.body.appendChild(child.$mount().$el)
+    return  child
 }
