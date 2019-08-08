@@ -32,10 +32,9 @@ module.exports = {
                 target:"http://s.h5.jumei.com",
                 changeOrigin:true
 
-            }
-        
         }
     },
+} ,
     //   设置以便于更方便找到对应文件夹
     configureWebpack:{
         resolve:{

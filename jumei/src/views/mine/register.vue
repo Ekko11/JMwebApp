@@ -2,18 +2,17 @@
     <div class="register">
         <div class="header">
         <div class="one">
-        <span class="top_left">&lt;</span>
+        <span class="top_left" @click="back">&lt;</span>
         <h4>注册</h4>
         <router-link to="./login" tag="span" class="top_right">登录</router-link>
         </div>
     </div>
-        <form>
+        <form v-model="ruleForm">
         <h6>使用手机注册</h6>
-        <input type="text" placeholder="请输入11位手机号">
-        <input type="password" placeholder="请输入登录密码">
-        <input type="password" placeholder="请再次输入密码">
+            <input v-model="ruleForm.adminName" type="text" placeholder="请输入聚美账号">
+            <input v-model="ruleForm.passWord" type="password" placeholder="请输入登录密码">
         <p>使用聚美账号登录<span>30天内自动登录</span></p>
-        <button>注册</button>
+            <div class="button" @click="submitForm">注册</div>
         <h5>点击注册，表示同意《聚美优品用户协议》</h5>
         </form>
     </div>
@@ -22,8 +21,28 @@
 <script>
 export default {
     name:"Register",
-    components:{
-        
+    data(){
+        return {
+            ruleForm: {
+                adminName: "",
+                passWord: ""
+            }
+        }
+    },
+    methods:{
+        submitForm(){
+            var obj={};
+            obj.adminName = this.ruleForm.adminName;
+            obj.password = this.ruleForm.passWord;
+            if(obj.adminName && obj.password){
+                this.$store.dispatch("register",obj);
+            }else {
+                alert("请重新输入")
+            }
+        },
+        back(){
+            this.$router.back()
+        }
     }
 }
 </script>
@@ -75,14 +94,14 @@ p>span{
     padding: 0px 5px;
     background: #fff;
 }
-button{
+.button{
     background: #feb2c5!important;
     border-radius: .167rem;
     width: 100%;
     height: .3rem;
     font-size: .117rem;
     color: #ffffff;
-    line-height: .117rem;
+    line-height: .3rem;
     text-align: center;
     margin: .15rem auto 0 auto;
     display: block;
