@@ -2,21 +2,22 @@
   <div class="login">
     <div class="header">
       <div class="one">
-        <span class="top_left">&lt;</span>
+        <span class="top_left" @click="back">&lt;</span>
         <h4>登录</h4>
         <!-- <span class="top_right">注册</span> -->
         <router-link to="/register" class="top_right">注册</router-link>
       </div>
     </div>
-    <form>
-      <h6>使用手机登录</h6>
-      <input type="text" placeholder="请输入11位手机号" />
-      <input type="password" placeholder="请输入密码" />
+    <form v-model="ruleForm">
+      <h6>使用聚美账号登录</h6>
+      <input v-model="ruleForm.adminName" type="text" placeholder="请输入聚美账号" />
+      <input v-model="ruleForm.passWord" type="password" placeholder="请输入密码" />
       <p>
-        使用聚美账号登录
+        使用手机登录
         <span>30天内自动登录</span>
       </p>
-      <button>登录</button>
+
+      <div class="button" @click="submitForm">登录</div>
     </form>
   </div>
 </template>
@@ -24,7 +25,31 @@
 <script>
 export default {
   name: "Login",
-  components: {}
+  data() {
+    return {
+      ruleForm: {
+        adminName: "",
+        passWord: ""
+      }
+    };
+  },
+  methods:{
+    submitForm(){
+      var obj={};
+      obj.adminName = this.ruleForm.adminName;
+      obj.password = this.ruleForm.passWord;
+      if(obj.adminName && obj.password){
+          this.$store.dispatch("login",obj)
+      }else {
+          alert("账号密码不对,请重新输输入")
+      }
+    },
+      back(){
+          this.$router.back()
+      }
+
+  }
+
 };
 </script>
 
@@ -73,14 +98,14 @@ p > span {
   padding: 0px 5px;
   background: #fff;
 }
-button {
+.button {
   background: #feb2c5 !important;
   border-radius: 0.167rem;
   width: 100%;
   height: 0.3rem;
+    line-height: 0.3rem;
   font-size: 0.117rem;
   color: #ffffff;
-  line-height: 0.117rem;
   text-align: center;
   margin: 0.15rem auto 0 auto;
   display: block;

@@ -4,7 +4,7 @@ export default{
     name:'mine',
     meta: {
         title: "我的",
-        flag: true,
+        // flag: true,
         auth:false,
     },
 }

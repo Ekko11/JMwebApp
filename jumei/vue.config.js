@@ -25,7 +25,6 @@ module.exports = {
                 changeOrigin:true
             },
 
-        
         }
     },
     //   设置以便于更方便找到对应文件夹
