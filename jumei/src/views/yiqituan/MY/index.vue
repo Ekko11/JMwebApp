@@ -1,6 +1,6 @@
 <template>
   <div class="content" ref="scroll">
-    <kl-BScroll>
+    <JM-scroll>
     <ul>
       <li v-for="item in data" :key="item.item_id">
         <router-link :to="'/goodsDetail?item_id='+item.item_id+'&type='+item.type">
@@ -20,7 +20,7 @@
         </router-link>
       </li>
     </ul>
-    </kl-BScroll>
+    </JM-scroll>
   </div>
 </template>
 

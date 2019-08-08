@@ -1,6 +1,6 @@
 <template>
-  <div class="content" ref="scroll">
-    <kl-BScroll>
+  <div class="content" >
+    <JM-scroll ref="JMscroll">
     <ul class="content_type">
       <li v-for="item in data" :key="item.item_id">
         <router-link :to="'/goodsDetail?item_id='+item.item_id+'&type='+item.type">
@@ -22,27 +22,36 @@
         </router-link>
       </li>
     </ul>
-    </kl-BScroll>
+    </JM-scroll>
   </div>
 </template>
 
 <script>
 import http from "utils/http.js";
+import { yiqituan_recom_api } from "api/yiqituan";
 
 export default {
   name: "Recom",
   data() {
     return {
-      data: []
+      data:[],
+      goodsList: [],
+      pageId:+1
     };
   },
-  created() {
-    http("get", "/yiqituan/tab_list?tab=coutuan_home&page=1&per_page=20").then(
-      data => {
-        this.data = data.data;
-      }
-    );
+async created() {
+    // http("get", "/yiqituan/tab_list?tab=coutuan_home&page=1&per_page=20").then(
+    //   data => {
+    //     this.data = data.data;
+    //   }
+    // );
+   
+    // console.log(222)
+    let data = await yiqituan_recom_api(2);
+    // console.log(data)
+    this.data=data.data;  
   }
+ 
 };
 </script>
 
@@ -98,8 +107,6 @@ export default {
     line-height: .15rem;
     padding: 0 .1rem;
     margin-top: .083333rem;
-    /* white-space: nowrap; */
-    
    
 }
 .des span {
@@ -108,7 +115,6 @@ export default {
 }
 .des i {
   list-style: none;
-      font: .116667rem "SimSun","宋体","Arial Narrow",HELVETICA;
 }
 
 .price {
@@ -116,13 +122,12 @@ export default {
   height: 0.5rem;
   width: 100%;
   padding: 0.1rem;
-  /* display: block; */
-  float: left;
+
 }
 .price_box{
   width:.516667rem;
   display: block;
-  float: left;
+
 }
 .price-now {
   font-size: 0.15rem;
@@ -132,18 +137,19 @@ export default {
   display: block;
 }
 
-.price-old {
+.price-old p{
   width: 100%;
   font-size: 0.091667rem;
   color: #999;
   display: block;
+
 }
 
 .tuan {
   border-radius: 0.208333rem;
   float: right;
   display: block;
-  border: 0.0625rem solid #fe4070;
+  border: 0.0625rem solid #fdeef2;
   background: #fe4070;
   font-size: .116667rem;
   text-align: center;
