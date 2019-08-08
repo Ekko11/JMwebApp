@@ -17,7 +17,8 @@ const router = new VueRouter({
             path:"/",
             redirect:"/home"
         },
-        home,
+        home[0],
+        home[1],
         order,
         yiqituan,
         mine,

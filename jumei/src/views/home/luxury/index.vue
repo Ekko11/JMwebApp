@@ -1,4 +1,5 @@
 <template>
+   <JM-scroll  ref="scroll">
       <div class="mum">
         <div class="rush" v-for="(item,index) in goodList" :key="index">
             <div class="rushImg">
@@ -15,6 +16,7 @@
             </div>
         </div>
     </div>
+   </JM-scroll>
 </template>
 
 <script>
@@ -29,8 +31,21 @@ export default {
     async created(){
     let data = await  home_Luxury_api()
     this.goodList = data.item_list
-    }
+    },
+       mounted(){
+    this.$refs.scroll.handlePullDownRefresh( async()=>{
+        let data = await  home_Luxury_api()
+        this.goodList = data.item_list
+        this.$refs.scroll.handlefinishPullDown();
+    })
+    this.$refs.scroll.handlePullUpLoad( async()=>{
+        let data = await  home_Luxury_api()
+        this.goodList =[...this.goodList,...data.item_list]
+        this.$refs.scroll.handlefinishPullUp();
+    })
+  }
 }
+
 </script>
 
 <style>

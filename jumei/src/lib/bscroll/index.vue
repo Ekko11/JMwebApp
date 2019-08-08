@@ -1,7 +1,7 @@
 <template>
   <div ref="wrapper" class="wrapper" data-id="456">
     <slot></slot>
-    <div v-if="toTopFlag" class="toTop" @click="topHandle" ref="toTop"></div>
+    <div v-if="toTopFlag" class="toTop" @click="topHandle" ref="toTop">Top</div>
   </div>
 </template>
 
@@ -72,7 +72,7 @@ export default {
 .wrapper {
   height: 100%;
 }
-<<<<<<< HEAD
+
 .toTop{
     width: .417rem;
     height: .417rem;
@@ -82,16 +82,10 @@ export default {
     right: 0.1667rem;
     z-index:10;
     border-radius: 50%;
-=======
-.toTop {
-  width: 0.417rem;
-  height: 0.417rem;
-  background: rgba(0, 0, 0, 0.3);
-  position: fixed;
-  bottom: 0.667rem;
-  right: 0.1667rem;
-  z-index: 10;
-  border-radius: 50%;
->>>>>>> KL
+
+    color: #fff;
+    text-align: center;
+    line-height: .417rem;
+
 }
 </style>

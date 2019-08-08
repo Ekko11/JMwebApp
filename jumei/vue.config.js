@@ -24,7 +24,15 @@ module.exports = {
                 target:"http://m.jumei.com",
                 changeOrigin:true
             },
+            "/product":{
+                target:"http://h5.jumei.com",
+                changeOrigin:true
+            },
+            "/mobile":{
+                target:"http://s.h5.jumei.com",
+                changeOrigin:true
 
+            }
         
         }
     },
